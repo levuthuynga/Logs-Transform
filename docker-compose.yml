@@ -1,0 +1,59 @@
+
+
+services:
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+    networks:
+      - app_network
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: mydb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  pyspark:
+    ports:
+      - "8888:8888"
+    build: ./pyspark
+    container_name: pyspark
+    environment:
+      - SPARK_HOME=/usr/local/spark
+      - PYSPARK_PYTHON=python3
+      - JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+    volumes:
+      - pyspark_data:/home/jovyan/work
+    networks:
+      - app_network
+    depends_on:
+      - cassandra
+      - mysql
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - app_network
+
+volumes:
+  cassandra_data:
+  mysql_data:
+  pyspark_data:
+
+networks:
+  app_network:
+    driver: bridge
