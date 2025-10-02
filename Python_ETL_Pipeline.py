@@ -169,7 +169,7 @@ def main_task(mysql_time, url, user, driver, password):
     final_output.printSchema()
 
     print('-----------------------------Import Output to MySQL-----------------------------')
-    import_to_mysql(final_output)
+    import_to_mysql(final_output, url, driver, user, password)
 
     return print('-------------------------Task Finished---------------------------------')
 
@@ -198,7 +198,7 @@ if __name__ == '__main__':
         print('MySQL latest time is {}'.format(mysql_time))
 
         if cassandra_time > mysql_time : 
-            main_task(mysql_time)
+            main_task(mysql_time, url, driver, user, password)
         else :
             print("No new data found")
 
