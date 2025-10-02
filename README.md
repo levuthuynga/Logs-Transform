@@ -7,7 +7,7 @@ The system uses Cassandra as data lake, PySpark for data transformation, stores 
 
 ## Architecture
 
-![alt text](image.png)
+![alt text](pipeline_diagram.png)
 ## Raw data
 [Tracking Data](/data/tracking.csv)
 
@@ -70,6 +70,7 @@ Data is processed in [Python_ETL_Pipeline](/Python_ETL_Pipeline.py) script.
  | latest_update_time | timestamp |
 
 ## Visualizing data
+![grafana_dashboard](grafana_dashboard.png)
 
 ## Setup
 - Docker: [docker-compose file](/docker-compose.yml)
