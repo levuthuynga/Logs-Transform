@@ -70,7 +70,7 @@ Data is processed in [Python_ETL_Pipeline](/Python_ETL_Pipeline.py) script.
  | latest_update_time | timestamp |
 
 ## Visualizing data
-![grafana_dashboard](grafana_dashboard.png)
+![grafana_dashboard](grafana_dashboard.PNG)
 
 ## Setup
 - Docker: [docker-compose file](/docker-compose.yml)
