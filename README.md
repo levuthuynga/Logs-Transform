@@ -11,62 +11,63 @@ The system uses Cassandra as data lake, PySpark for data transformation, stores 
 ## Raw data
 [Tracking Data](/data/tracking.csv)
 
-Schema
-```
- |-- create_time: string (nullable = false)
- |-- bid: integer (nullable = true)
- |-- bn: string (nullable = true)
- |-- campaign_id: integer (nullable = true)
- |-- cd: integer (nullable = true)
- |-- custom_track: string (nullable = true)
- |-- de: string (nullable = true)
- |-- dl: string (nullable = true)
- |-- dt: string (nullable = true)
- |-- ed: string (nullable = true)
- |-- ev: integer (nullable = true)
- |-- group_id: integer (nullable = true)
- |-- id: string (nullable = true)
- |-- job_id: integer (nullable = true)
- |-- md: string (nullable = true)
- |-- publisher_id: integer (nullable = true)
- |-- rl: string (nullable = true)
- |-- sr: string (nullable = true)
- |-- ts: string (nullable = true)
- |-- tz: integer (nullable = true)
- |-- ua: string (nullable = true)
- |-- uid: string (nullable = true)
- |-- utm_campaign: string (nullable = true)
- |-- utm_content: string (nullable = true)
- |-- utm_medium: string (nullable = true)
- |-- utm_source: string (nullable = true)
- |-- utm_term: string (nullable = true)
- |-- v: integer (nullable = true)
- |-- vp: string (nullable = true)
-```
+### Data Disctionary
+| Column Name | Data Type |
+|-------------|-----------|
+ | create_time | string |
+ | bid | integer |
+ | bn | string |
+ | campaign_id | integer |
+ | cd | integer |
+ | custom_track | string |
+ | de | string |
+ | dl | string |
+ | dt | string |
+ | ed | string |
+ | ev | integer |
+ | group_id | integer |
+ | id | string |
+ | job_id | integer |
+ | md | string |
+ | publisher_id | integer |
+ | rl | string |
+ | sr | string |
+ | ts | string |
+ | tz | integer |
+ | ua | string |
+ | uid | string |
+ | utm_campaign | string |
+ | utm_content | string |
+ | utm_medium | string |
+ | utm_source | string |
+ | utm_term | string |
+ | v | integer |
+ | vp | string |
+
 
 ## Processing data
 Data is processed in [Python_ETL_Pipeline](/Python_ETL_Pipeline.py) script.
 
 ## Clean data
-Schema
-```
- |-- job_id: integer (nullable = true)
- |-- dates: timestamp (nullable = true)
- |-- hours: integer (nullable = true)
- |-- disqualified_application: integer (nullable = true)
- |-- qualified_application: integer (nullable = true)
- |-- conversion: integer (nullable = true)
- |-- company_id: integer (nullable = true)
- |-- group_id: integer (nullable = true)
- |-- campaign_id: integer (nullable = true)
- |-- publisher_id: integer (nullable = true)
- |-- bid_set: double (nullable = true)
- |-- clicks: integer (nullable = true)
- |-- impressions: string (nullable = true)
- |-- spend_hour: double (nullable = true)
- |-- sources: string (nullable = true)
- |-- latest_update_time: timestamp (nullable = true)
- ```
+### Data Disctionary
+| Column Name | Data Type |
+|-------------|-----------|
+ | job_id | integer |
+ | dates | timestamp |
+ | hours| integer |
+ | disqualified_application | integer |
+ | qualified_application| integer |
+ | conversion | integer |
+ | company_id | integer |
+ | group_id | integer |
+ | campaign_id | integer |
+ | publisher_id | integer |
+ | bid_set | double |
+ | clicks | integer |
+ | impressions | string |
+ | spend_hour | double |
+ | sources | string |
+ | latest_update_time | timestamp |
 
 ## Visualizing data
 
